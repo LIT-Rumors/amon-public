@@ -1,0 +1,49 @@
+namespace "Bot";
+
+// We assume that the property Bot.SensorState should be monitored at least once every 2.5 seconds (and not more frequently than that).
+Assumption "Bot.SensorState" MIN_PERIOD:  2.5 seconds;
+
+// For the property Diagnostics, the previous monitoring behavior should be kept by default, whereas Bot.SensorState and Bot.Battery should be turned off by default.
+Default "Bot.Diagnostics" keep;
+Default "Bot.SensorState" off;
+Default "Bot.BatteryStatus" off; 
+
+
+/**
+* The preplanned rule "pre-mission-data" should be used for all bots in the fleet.
+* It is triggered when the state "Bot.calibrating" is entered.
+* The odometry should be monitored centrally once every 0.5 seconds.
+* The Bot.SensorState should be locally monitored every 3 seconds.
+*/ 
+Rule PREPLANNED "pre-mission-data" applies forall
+	Trigger Context["Bot.calibrating"] EXIT
+		Monitor "Bot.Odometry":
+			CHANGE_SCOPE: scope central
+			CHANGE_PERIOD: every 0.5 seconds
+		Monitor "Bot.SensorState":
+			CHANGE_SCOPE: scope central
+			CHANGE_PERIOD: every 3 seconds
+;
+
+
+/**
+* The ubiquitous rule "battery-and-planning-error" should be used for all Bots.
+* Its salience value is 5.
+* It is triggered when the events "low-battery" and "pathplanning-error" are triggered.
+* The Bot.Odometry should be monitored locally once every 3 seconds.
+* The Bot.SensorState should be monitored once every 2 seconds. 
+* The Bot.BatteryStatus should be monitored locally once every 10 seconds.
+*/ 	
+Rule UBIQUITOUS "battery-and-planning-error" applies forall
+	salience 5    
+	Trigger Event["Bot.low-battery"] and Event["Bot.pathplanning-error"] 
+		Monitor "Bot.Odometry":
+			CHANGE_SCOPE: scope local
+			CHANGE_PERIOD: every 3 seconds
+		Monitor "Bot.SensorState":
+			CHANGE_PERIOD: every 2 seconds
+		Monitor "Bot.BatteryStatus":
+			CHANGE_SCOPE: scope local
+			CHANGE_PERIOD: every 10 seconds
+;
+

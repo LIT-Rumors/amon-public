@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="20131001" xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ActionLanguage="http://www.omg.org/spec/ALF/20120827/ActionLanguage-Profile" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML" xsi:schemaLocation="http://www.omg.org/spec/ALF/20120827/ActionLanguage-Profile pathmap://PAPYRUS_ACTIONLANGUAGE_PROFILE/ActionLanguage-Profile.profile.uml#_Kv8EIKFXEeS_KNX0nfvIVQ">
+  <uml:Model xmi:id="_0vOjEJvPEeuhq76_kTbp1A" name="item_delivery">
+    <packageImport xmi:type="uml:PackageImport" xmi:id="_0xyH0JvPEeuhq76_kTbp1A">
+      <importedPackage xmi:type="uml:Model" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#_0"/>
+    </packageImport>
+    <packagedElement xmi:type="uml:StateMachine" xmi:id="_0wOooJvPEeuhq76_kTbp1A" name="Dronology - Item Delivery">
+      <region xmi:type="uml:Region" xmi:id="_0wjYwJvPEeuhq76_kTbp1A" name="rtl">
+        <transition xmi:type="uml:Transition" xmi:id="_6AY6sJvPEeuhq76_kTbp1A" source="_3dSr0JvPEeuhq76_kTbp1A" target="_2HcTMJvPEeuhq76_kTbp1A"/>
+        <transition xmi:type="uml:Transition" xmi:id="_aDw2gJxSEeu9j6M3I3U4Ig" source="_LOwKEJxSEeu9j6M3I3U4Ig" target="_Lla9oJxSEeu9j6M3I3U4Ig"/>
+        <transition xmi:type="uml:Transition" xmi:id="_cTbMAJxSEeu9j6M3I3U4Ig" source="_Lla9oJxSEeu9j6M3I3U4Ig" target="_MMchYJxSEeu9j6M3I3U4Ig"/>
+        <transition xmi:type="uml:Transition" xmi:id="_dDn54JxSEeu9j6M3I3U4Ig" source="_MMchYJxSEeu9j6M3I3U4Ig" target="_MbJrwJxSEeu9j6M3I3U4Ig"/>
+        <transition xmi:type="uml:Transition" xmi:id="_nFVPYJxSEeu9j6M3I3U4Ig" source="_MMchYJxSEeu9j6M3I3U4Ig" target="_lgagAJxSEeu9j6M3I3U4Ig"/>
+        <transition xmi:type="uml:Transition" xmi:id="_nlsxgJxSEeu9j6M3I3U4Ig" source="_MMchYJxSEeu9j6M3I3U4Ig" target="_MqKYIJxSEeu9j6M3I3U4Ig"/>
+        <transition xmi:type="uml:Transition" xmi:id="_o3NcsJxSEeu9j6M3I3U4Ig" source="_L6UPkJxSEeu9j6M3I3U4Ig" target="_MMchYJxSEeu9j6M3I3U4Ig"/>
+        <transition xmi:type="uml:Transition" xmi:id="_1PKQ0JxSEeu9j6M3I3U4Ig" source="_lgagAJxSEeu9j6M3I3U4Ig" target="_MMchYJxSEeu9j6M3I3U4Ig"/>
+        <transition xmi:type="uml:Transition" xmi:id="_-So9YEtzEey-h__BZKiiPA" source="_MqKYIJxSEeu9j6M3I3U4Ig" target="_L6UPkJxSEeu9j6M3I3U4Ig"/>
+        <transition xmi:type="uml:Transition" xmi:id="_ArgSMEt0Eey-h__BZKiiPA" source="_2HcTMJvPEeuhq76_kTbp1A" target="_LOwKEJxSEeu9j6M3I3U4Ig"/>
+        <subvertex xmi:type="uml:State" xmi:id="_2HcTMJvPEeuhq76_kTbp1A" name="active"/>
+        <subvertex xmi:type="uml:Pseudostate" xmi:id="_3dSr0JvPEeuhq76_kTbp1A" name="initialized"/>
+        <subvertex xmi:type="uml:State" xmi:id="_LOwKEJxSEeu9j6M3I3U4Ig" name="ready-for-takeoff"/>
+        <subvertex xmi:type="uml:State" xmi:id="_Lla9oJxSEeu9j6M3I3U4Ig" name="taking-off"/>
+        <subvertex xmi:type="uml:State" xmi:id="_L6UPkJxSEeu9j6M3I3U4Ig" name="dropping-item"/>
+        <subvertex xmi:type="uml:State" xmi:id="_MMchYJxSEeu9j6M3I3U4Ig" name="in-air"/>
+        <subvertex xmi:type="uml:State" xmi:id="_MbJrwJxSEeu9j6M3I3U4Ig" name="rtl"/>
+        <subvertex xmi:type="uml:State" xmi:id="_MqKYIJxSEeu9j6M3I3U4Ig" name="at-dropoff-location"/>
+        <subvertex xmi:type="uml:State" xmi:id="_lgagAJxSEeu9j6M3I3U4Ig" name="flying-to-target"/>
+      </region>
+      <region xmi:type="uml:Region" xmi:id="_I2gB4EttEey8OJ0lZhCBXg" name="Ubiquitous">
+        <subvertex xmi:type="uml:State" xmi:id="_NV0F0EttEey8OJ0lZhCBXg" name="low-battery">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_RqtpgEttEey8OJ0lZhCBXg">
+            <body></body>
+          </ownedComment>
+        </subvertex>
+        <subvertex xmi:type="uml:State" xmi:id="_SSzkQEttEey8OJ0lZhCBXg" name="geofence-breach">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_SSzkQUttEey8OJ0lZhCBXg">
+            <body></body>
+          </ownedComment>
+        </subvertex>
+        <subvertex xmi:type="uml:State" xmi:id="_2cvfgEtwEey8OJ0lZhCBXg" name="adverse-weather">
+          <ownedComment xmi:type="uml:Comment" xmi:id="_2cvfgUtwEey8OJ0lZhCBXg">
+            <body></body>
+          </ownedComment>
+        </subvertex>
+        <subvertex xmi:type="uml:State" xmi:id="_ObAPcEtxEey8OJ0lZhCBXg" name="communication-error"/>
+      </region>
+    </packagedElement>
+    <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_gA6KYJxSEeu9j6M3I3U4Ig">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_gA7_kJxSEeu9j6M3I3U4Ig" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="pathmap://PAPYRUS_ACTIONLANGUAGE_PROFILE/ActionLanguage-Profile.profile.uml#_Kv8EIKFXEeS_KNX0nfvIVQ"/>
+      </eAnnotations>
+      <appliedProfile xmi:type="uml:Profile" href="pathmap://PAPYRUS_ACTIONLANGUAGE_PROFILE/ActionLanguage-Profile.profile.uml#ActionLanguage"/>
+    </profileApplication>
+  </uml:Model>
+  <ActionLanguage:TextualRepresentation xmi:id="_Rqu3oEttEey8OJ0lZhCBXg" base_Comment="_RqtpgEttEey8OJ0lZhCBXg" language="org.eclipse.papyrus.uml.textedit.state.xtext.UmlState"/>
+  <ActionLanguage:TextualRepresentation xmi:id="_STHtUEttEey8OJ0lZhCBXg" base_Comment="_SSzkQUttEey8OJ0lZhCBXg" language="org.eclipse.papyrus.uml.textedit.state.xtext.UmlState"/>
+  <ActionLanguage:TextualRepresentation xmi:id="_2czw8EtwEey8OJ0lZhCBXg" base_Comment="_2cvfgUtwEey8OJ0lZhCBXg" language="org.eclipse.papyrus.uml.textedit.state.xtext.UmlState"/>
+</xmi:XMI>

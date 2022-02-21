@@ -1,0 +1,53 @@
+namespace "Drone";
+
+
+
+// We assume that the property Dronestate should be monitored at least once every 2 seconds (and not more frequently than that).
+Assumption "Drone.Dronestate" MIN_PERIOD:  2 seconds;
+
+// For the property Homelocation, the previous monitoring behavior should be kept by default, whereas Dronestate and Battery should be turned off by default.
+Default "Drone.HomeLocation" keep;
+Default "Drone.Dronestate" off;
+Default "Drone.BatteryStatus" off;
+
+/**
+* The preplanned rule "return-to-launch" should be used for all drones in the fleet.
+* It is triggered when the state "rtl" is entered.
+* The GPS location should be monitored centrally once every 0.5 seconds.
+* The Dronestate should be locally monitored every 3 second.
+*/ 
+Rule PREPLANNED "return-to-launch" applies forall
+	Trigger Context["Drone.rtl"] EXIT
+		Monitor "Drone.GPSLocation":
+			CHANGE_SCOPE: scope central
+			CHANGE_PERIOD: every 0.5 seconds
+		Monitor "Drone.Dronestate":
+			CHANGE_SCOPE: scope central
+			CHANGE_PERIOD: every 3 seconds
+;
+
+/**
+* The ubiquitous rule "battery-and-geofence" should be used for all drones in the fleet.
+* Its salience value is 5.
+* It is triggered when the events "Drone.low-battery" and "Drone.geofence-breach" are triggered.
+* The GPS location should be monitored locally once every 3 seconds.
+* The Dronestate should be monitored once every second. 
+* The battery should be monitored locally once every 10 seconds.
+*/ 	
+Rule UBIQUITOUS "battery-and-geofence" applies forall
+	salience 5  
+	Trigger Event["Drone.low-battery"] and Event["Drone.geofence-breach"]
+		Monitor "Drone.GPSLocation":
+			CHANGE_SCOPE: scope local
+			CHANGE_PERIOD: every 3 seconds
+		Monitor "Drone.Dronestate":
+			CHANGE_PERIOD: every 1 seconds
+		Monitor "Drone.BatteryStatus":
+			CHANGE_SCOPE: scope local
+			CHANGE_PERIOD: every 10 seconds
+;
+		
+		
+		
+		
+	
