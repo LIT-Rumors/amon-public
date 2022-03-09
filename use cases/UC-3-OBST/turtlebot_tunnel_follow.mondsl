@@ -1,0 +1,393 @@
+/* * * * * * * * * * * * * * * 
+ * 							 *
+ * 	 TurtleBot MonDSL	UC3  *
+ * 							 *
+ * * * * * * * * * * * * * * */
+
+namespace "Bot";
+
+////////// assumptions //////////
+Assumption "Bot.BatteryStatus"  MIN_PERIOD:  1 seconds;
+Assumption "Bot.LaserScan" MIN_PERIOD: 1 seconds;
+Assumption "Bot.VersionInfo" MIN_PERIOD: 5 seconds;
+
+////////// default values //////////
+Default "Bot.BatteryStatus" off;
+Default "Bot.Velocity" off;
+Default "Bot.Diagnostics" off;
+Default "Bot.JointState" off;
+Default "Bot.MagneticField" off;
+Default "Bot.VersionInfo" off;
+Default "Bot.Odometry" off;
+Default "Bot.SensorState" off;
+Default "Bot.LaserScan" off;
+
+
+////////// Preplanned Rules for all states //////////
+ 
+// active
+Rule PREPLANNED "active"  applies forall
+	Trigger Context["active"] ENTRY
+		Monitor "Bot.BatteryStatus":
+			CHANGE_PERIOD: every 1 seconds
+		 	CHANGE_SCOPE: scope central
+		Monitor "Bot.Velocity":
+			CHANGE_PERIOD: every 5 seconds
+		 	CHANGE_SCOPE: scope central
+		Monitor "Bot.Diagnostics":
+			CHANGE_PERIOD: every 1 seconds
+		 	CHANGE_SCOPE: scope central
+		Monitor "Bot.JointState" :
+			CHANGE_PERIOD: every 5 seconds
+		 	CHANGE_SCOPE: scope central
+		Monitor "Bot.MagneticField":
+			CHANGE_PERIOD: every 5 seconds
+		 	CHANGE_SCOPE: scope central
+		Monitor "Bot.VersionInfo" :
+		 	CHANGE_PERIOD: every 5 seconds
+		 	CHANGE_SCOPE: scope central
+		Monitor "Bot.Odometry":
+			CHANGE_PERIOD: every 5 seconds
+		 	CHANGE_SCOPE: scope central
+		Monitor "Bot.SensorState":
+		 	CHANGE_PERIOD: every 5 seconds
+		 	CHANGE_SCOPE: scope central
+		Monitor "Bot.LaserScan" :
+			CHANGE_PERIOD: every 5 seconds
+		 	CHANGE_SCOPE: scope central;
+		 	
+		
+		
+
+// calibrating			 	
+Rule PREPLANNED "calibrating" applies forall
+	Trigger Context["calibrating"] ENTRY
+		Monitor "Bot.BatteryStatus":
+			CHANGE_PERIOD: every 5 seconds
+		 	CHANGE_SCOPE: scope local
+		Monitor "Bot.Diagnostics":
+			CHANGE_PERIOD: every 10 seconds
+		 	CHANGE_SCOPE: scope local
+		Monitor "Bot.Velocity":
+		 	CHANGE_PERIOD: every 1 seconds
+		 	CHANGE_SCOPE: scope central
+		Monitor "Bot.JointState" :
+			CHANGE_PERIOD: every 5 seconds
+		 	CHANGE_SCOPE: scope local
+		Monitor "Bot.MagneticField":
+			CHANGE_PERIOD: every 1 seconds
+		 	CHANGE_SCOPE: scope central
+		Monitor "Bot.VersionInfo" :
+		 	CHANGE_PERIOD: every 10 seconds
+		 	CHANGE_SCOPE: scope local
+		Monitor "Bot.Odometry":
+			CHANGE_PERIOD: every 1 seconds
+		 	CHANGE_SCOPE: scope central
+		Monitor "Bot.SensorState":
+		 	CHANGE_PERIOD: every 1 seconds
+		 	CHANGE_SCOPE: scope central
+		Monitor "Bot.LaserScan" :
+			CHANGE_PERIOD: every 1 seconds
+		 	CHANGE_SCOPE: scope central;
+		 	
+
+// ready
+Rule PREPLANNED "ready" applies forall
+	Trigger Context["ready"] ENTRY
+		Monitor "Bot.BatteryStatus":
+			CHANGE_PERIOD: every 5 seconds
+		 	CHANGE_SCOPE: scope local
+ 		Monitor "Bot.Velocity":
+		 	CHANGE_PERIOD: every 1 seconds
+		 	CHANGE_SCOPE: scope central
+		Monitor "Bot.JointState" :
+			CHANGE_PERIOD: every 5 seconds
+		 	CHANGE_SCOPE: scope local
+		Monitor "Bot.Diagnostics":
+			CHANGE_PERIOD: every 1 seconds
+		 	CHANGE_SCOPE: scope central
+		Monitor "Bot.MagneticField":
+			CHANGE_PERIOD: every 5 seconds
+		 	CHANGE_SCOPE: scope local
+		Monitor "Bot.VersionInfo" :
+		 	CHANGE_PERIOD: every 5 seconds
+		 	CHANGE_SCOPE: scope local
+		Monitor "Bot.Odometry":
+			CHANGE_PERIOD: every 5 seconds
+		 	CHANGE_SCOPE: scope local
+		Monitor "Bot.SensorState":
+		 	CHANGE_PERIOD: every 5 seconds
+		 	CHANGE_SCOPE: scope local
+		Monitor "Bot.LaserScan" :
+			CHANGE_PERIOD: every 5 seconds
+			CHANGE_SCOPE: scope local;
+
+
+
+
+			
+// mission init
+Rule PREPLANNED "mission_initialized" applies forall
+	Trigger Context["mission_initialized"] ENTRY
+		Monitor "Bot.BatteryStatus":
+			CHANGE_PERIOD: every 5 seconds
+		 	CHANGE_SCOPE: scope local
+ 		Monitor "Bot.Velocity":
+		 	CHANGE_PERIOD: every 3 seconds
+		 	CHANGE_SCOPE: scope local
+		Monitor "Bot.JointState" :
+			CHANGE_PERIOD: every 3 seconds
+		 	CHANGE_SCOPE: scope local
+		Monitor "Bot.Diagnostics":
+			CHANGE_PERIOD: every 1 seconds
+		 	CHANGE_SCOPE: scope central
+		Monitor "Bot.MagneticField":
+			CHANGE_PERIOD: every 2 seconds
+		 	CHANGE_SCOPE: scope local
+		Monitor "Bot.LaserScan" :
+			CHANGE_PERIOD: every 1 seconds
+			CHANGE_SCOPE: scope central;
+			
+			
+			
+// collaborating
+Rule PREPLANNED "collaborating" applies forall
+	Trigger Context["collaborating"] ENTRY
+		Monitor "Bot.BatteryStatus":
+			CHANGE_PERIOD: every 5 seconds
+		 	CHANGE_SCOPE: scope central
+ 		Monitor "Bot.Velocity":
+		 	CHANGE_PERIOD: every 1 seconds
+		 	CHANGE_SCOPE: scope central
+		Monitor "Bot.JointState" :
+			CHANGE_PERIOD: every 1 seconds
+		 	CHANGE_SCOPE: scope central
+		Monitor "Bot.Diagnostics":
+			CHANGE_PERIOD: every 10 seconds
+		 	CHANGE_SCOPE: scope central
+		Monitor "Bot.Odometry":
+			CHANGE_PERIOD: every 1 seconds
+		 	CHANGE_SCOPE: scope central
+		Monitor "Bot.SensorState":
+		 	CHANGE_PERIOD: every 1 seconds
+		 	CHANGE_SCOPE: scope central
+		Monitor "Bot.LaserScan" :
+			CHANGE_PERIOD: every 1 seconds
+			CHANGE_SCOPE: scope central;
+		
+		
+// push_mode
+Rule PREPLANNED "push_mode" applies forall
+	Trigger Context["pushing"] ENTRY
+ 		Monitor "Bot.Velocity":
+		 	CHANGE_PERIOD: every 1 seconds
+		 	CHANGE_SCOPE: scope central
+		Monitor "Bot.JointState" :
+			CHANGE_PERIOD: every 1 seconds
+		 	CHANGE_SCOPE: scope central
+		Monitor "Bot.Diagnostics":
+			CHANGE_PERIOD: every 5 seconds
+		 	CHANGE_SCOPE: scope central
+		Monitor "Bot.MagneticField":
+			CHANGE_PERIOD: every 2 seconds
+		 	CHANGE_SCOPE: scope local
+		Monitor "Bot.VersionInfo" :
+		 	CHANGE_PERIOD: every 10 seconds
+		 	CHANGE_SCOPE: scope local
+		Monitor "Bot.Odometry":
+			CHANGE_PERIOD: every 1 seconds
+		 	CHANGE_SCOPE: scope central
+		Monitor "Bot.SensorState":
+		 	CHANGE_PERIOD: every 5 seconds
+		 	CHANGE_SCOPE: scope local;
+	
+	
+	
+// object_confirmed
+Rule PREPLANNED "object_confirmed" applies forall
+	Trigger Context["object_confirmed"] ENTRY
+		Monitor "Bot.BatteryStatus":
+			CHANGE_PERIOD: every 2 seconds
+		 	CHANGE_SCOPE: scope local
+ 		Monitor "Bot.Velocity":
+		 	CHANGE_PERIOD: every 2 seconds
+		 	CHANGE_SCOPE: scope central
+		Monitor "Bot.JointState" :
+			CHANGE_PERIOD: every 5 seconds
+		 	CHANGE_SCOPE: scope local
+		Monitor "Bot.Diagnostics":
+			CHANGE_PERIOD: every 1 seconds
+		 	CHANGE_SCOPE: scope central
+		Monitor "Bot.MagneticField":
+			CHANGE_PERIOD: every 2 seconds
+		 	CHANGE_SCOPE: scope local
+		Monitor "Bot.VersionInfo" :
+		 	CHANGE_PERIOD: every 10 seconds
+		 	CHANGE_SCOPE: scope local
+		Monitor "Bot.Odometry":
+			CHANGE_PERIOD: every 2 seconds
+		 	CHANGE_SCOPE: scope local
+		Monitor "Bot.SensorState":
+		 	CHANGE_PERIOD: every 2 seconds
+		 	CHANGE_SCOPE: scope central
+		Monitor "Bot.LaserScan" :
+			CHANGE_PERIOD: every 2 seconds
+			CHANGE_SCOPE: scope central;
+
+		 	
+
+// final position
+Rule PREPLANNED "final_position" applies forall
+	Trigger Context["final_position"] ENTRY
+		Monitor "Bot.BatteryStatus":
+			CHANGE_PERIOD: every 10 seconds
+		 	CHANGE_SCOPE: scope local
+ 		Monitor "Bot.Velocity":
+		 	CHANGE_PERIOD: every 2 seconds
+		 	CHANGE_SCOPE: scope local
+		Monitor "Bot.JointState" :
+			CHANGE_PERIOD: every 5 seconds
+		 	CHANGE_SCOPE: scope local
+		Monitor "Bot.Diagnostics":
+			CHANGE_PERIOD: every 2 seconds
+		 	CHANGE_SCOPE: scope local
+		Monitor "Bot.MagneticField":
+			CHANGE_PERIOD: every 5 seconds
+		 	CHANGE_SCOPE: scope local
+		Monitor "Bot.VersionInfo" :
+		 	CHANGE_PERIOD: every 5 seconds
+		 	CHANGE_SCOPE: scope local
+		Monitor "Bot.Odometry":
+			CHANGE_PERIOD: every 5 seconds
+		 	CHANGE_SCOPE: scope local
+		Monitor "Bot.SensorState":
+		 	CHANGE_PERIOD: every 5 seconds
+		 	CHANGE_SCOPE: scope local
+		Monitor "Bot.LaserScan" :
+			CHANGE_PERIOD: every 5 seconds
+			CHANGE_SCOPE: scope local;
+
+
+
+////////// ubiquitous rules //////////
+
+// low battery
+ Rule UBIQUITOUS "battery" applies forall  
+ 	salience 29
+ 	Trigger Event['Low Battery']
+		Monitor "Bot.BatteryStatus":
+			CHANGE_PERIOD: every 1 seconds
+		 	CHANGE_SCOPE: scope central
+ 		Monitor "Bot.Velocity":
+		 	CHANGE_PERIOD: every 5 seconds
+		 	CHANGE_SCOPE: scope central
+		Monitor "Bot.JointState" :
+			CHANGE_STATE: off
+		Monitor "Bot.Diagnostics":
+			CHANGE_PERIOD: every 5 seconds
+		 	CHANGE_SCOPE: scope central
+		Monitor "Bot.MagneticField":
+			CHANGE_STATE: off
+		Monitor "Bot.VersionInfo" :
+		 	CHANGE_STATE: off
+		Monitor "Bot.Odometry":
+			CHANGE_STATE: off
+		Monitor "Bot.SensorState":
+		 	CHANGE_STATE: off
+		Monitor "Bot.LaserScan" :
+			CHANGE_STATE: off;
+
+// dignostics error (hardware issues)
+ Rule UBIQUITOUS "diagnostic" applies forall  
+ 	salience 22
+ 	Trigger Event['Diagnostic Error']
+		Monitor "Bot.BatteryStatus":
+			CHANGE_PERIOD: every 1 seconds
+		 	CHANGE_SCOPE: scope central
+ 		Monitor "Bot.Velocity":
+			CHANGE_PERIOD: every 1 seconds
+		 	CHANGE_SCOPE: scope central
+		Monitor "Bot.JointState" :
+			CHANGE_PERIOD: every 1 seconds
+		 	CHANGE_SCOPE: scope central
+		Monitor "Bot.Diagnostics":
+			CHANGE_PERIOD: every 1 seconds
+		 	CHANGE_SCOPE: scope central
+		Monitor "Bot.MagneticField":
+			CHANGE_PERIOD: every 1 seconds
+		 	CHANGE_SCOPE: scope central
+		Monitor "Bot.VersionInfo" :
+			CHANGE_PERIOD: every 3 seconds
+		 	CHANGE_SCOPE: scope central
+		Monitor "Bot.Odometry":
+			CHANGE_PERIOD: every 1 seconds
+		 	CHANGE_SCOPE: scope central
+		Monitor "Bot.SensorState":
+			CHANGE_PERIOD: every 1 seconds
+		 	CHANGE_SCOPE: scope central
+		Monitor "Bot.LaserScan" :
+			CHANGE_PERIOD: every 1 seconds
+		 	CHANGE_SCOPE: scope central;
+
+// sensor error		 	
+ Rule UBIQUITOUS "sensor" applies forall  
+ 	salience 20
+ 	Trigger Event['Sensor Failure']
+		Monitor "Bot.BatteryStatus":
+			CHANGE_PERIOD: every 1 seconds
+		 	CHANGE_SCOPE: scope central
+ 		Monitor "Bot.Velocity":
+			CHANGE_PERIOD: every 1 seconds
+		 	CHANGE_SCOPE: scope central
+		Monitor "Bot.JointState" :
+			CHANGE_STATE: off
+		Monitor "Bot.Diagnostics":
+			CHANGE_PERIOD: every 1 seconds
+		 	CHANGE_SCOPE: scope central
+		Monitor "Bot.MagneticField":
+			CHANGE_STATE: off
+		Monitor "Bot.VersionInfo" :
+			CHANGE_STATE: off
+		Monitor "Bot.Odometry":
+			CHANGE_STATE: off
+		Monitor "Bot.SensorState":
+			CHANGE_PERIOD: every 1 seconds
+		 	CHANGE_SCOPE: scope central
+		Monitor "Bot.LaserScan" :
+			CHANGE_PERIOD: every 1 seconds
+		 	CHANGE_SCOPE: scope central;
+
+
+// path error
+ Rule UBIQUITOUS "pathplanning" applies forall  
+ 	salience 25
+ 	Trigger Event['Pathplanning Error']
+		Monitor "Bot.BatteryStatus":
+			CHANGE_PERIOD: every 5 seconds
+		 	CHANGE_SCOPE: scope central
+ 		Monitor "Bot.Velocity":
+			CHANGE_PERIOD: every 1 seconds
+		 	CHANGE_SCOPE: scope central
+		Monitor "Bot.JointState" :
+			CHANGE_PERIOD: every 5 seconds
+		 	CHANGE_SCOPE: scope central
+		Monitor "Bot.Diagnostics":
+			CHANGE_PERIOD: every 1 seconds
+		 	CHANGE_SCOPE: scope central
+		Monitor "Bot.MagneticField":
+			CHANGE_PERIOD: every 5 seconds
+		 	CHANGE_SCOPE: scope central
+		Monitor "Bot.VersionInfo" :
+			CHANGE_PERIOD: every 5 seconds
+		 	CHANGE_SCOPE: scope central
+		Monitor "Bot.Odometry":
+			CHANGE_PERIOD: every 1 seconds
+		 	CHANGE_SCOPE: scope central
+		Monitor "Bot.SensorState":
+			CHANGE_PERIOD: every 1 seconds
+		 	CHANGE_SCOPE: scope central
+		Monitor "Bot.LaserScan" :
+			CHANGE_PERIOD: every 1 seconds
+		 	CHANGE_SCOPE: scope central;
+
+
