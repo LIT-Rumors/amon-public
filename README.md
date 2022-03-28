@@ -3,6 +3,9 @@
 __AMon: A Domain-Specific Language and Framework
 for Adaptive Monitoring of Small Autonomous Vehicles__
 
+Submitted to the Journal of Systems and Software
+
+
 
 Use Case Materal:
 
