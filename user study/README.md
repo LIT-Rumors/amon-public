@@ -7,5 +7,5 @@
 
 ## Study Files
 
-- [Dronolgy](/dronology)
-- [TurtleBot](/turtlebot)
+- [Dronolgy](/user%20study/dronology)
+- [TurtleBot](/user%20study/turtlebot)
