@@ -14,7 +14,7 @@
 
 ### Grammar
 
-[XText DSL File](xtext.dsl)
+[XText DSL File](Dsl.xtext)
 
 
 ```Model: 	namespace=Namespace contracts+=Assumption* defaults+=DefaultValues* prules+=MonitoringRule*  grules+=GlobalRule* constraints+=ConstraintRule*;```
