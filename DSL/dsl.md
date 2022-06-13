@@ -5,12 +5,19 @@ To facilitate the specification of adaptation rules for a runtime monitoring env
 
 We include two types of rules:
 
--. Preplanned Rules that are triggered based on different states of the system, or of its devices (e.g., a UAV being in a "takeoff" state versus "flying")
--. Ubiquitous Rules that are triggered by exceptions (e.g., a low battery warning) or other factors.
+- **Preplanned Rules**  that are triggered based on different states of the system, or of its devices (e.g., a UAV being in a "takeoff" state versus "flying")
+- **Ubiquitous Rules** that are triggered by exceptions (e.g., a low battery warning) or other factors.
 
 In addition to the specification of rules, we also support the description of 
-- Assumptions about the system and its environment.
-- Default Values
+- **Assumptions** about the system and its environment.
+- **Default Values**
+
+
+## Examples: 
+
+ - [Dronology Rules (Xtext)](example_dronology.mondsl)
+ - [TurtleBot Rules (Xtext)](example_tutrtlebot.mondsl)
+
 
 
 
