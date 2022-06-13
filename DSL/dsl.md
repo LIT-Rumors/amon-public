@@ -23,6 +23,16 @@ Subsequently, each  _Monitor_ entry denotes a property item (i.e., a message) th
 
 
 
+
+
+<object data="https://github.com/LIT-Rumors/amon-material/blob/main/DSL/RT1.pdf" type="application/pdf" width="700px" height="700px">
+    <embed src="https://github.com/LIT-Rumors/amon-material/blob/main/DSL/RT1.pdf">
+        <p>This browser does not support PDFs. Please download the PDF to view it: <a href="http://yoursite.com/the.pdf">Download PDF</a>.</p>
+    </embed>
+</object>
+
+
+
 Monitor specifications define the _Scope_ i.e., whether the data is processed locally on the device _scope local_, or sent to a central server (_scope central_) for processing, constraint checking, or further analysis.
 The _Period_ further specifies how often data is sent from, for example, the edge device to the central server.
 
