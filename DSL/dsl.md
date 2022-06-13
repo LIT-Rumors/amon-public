@@ -1,4 +1,22 @@
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+### Grammar
+
+[XText DSL File](xtext.dsl)
+
+
 ```Model: 	namespace=Namespace contracts+=Assumption* defaults+=DefaultValues* prules+=MonitoringRule*  grules+=GlobalRule* constraints+=ConstraintRule*;```
 
 ``Namespace:	'namespace' namespace=STRING ';';``
