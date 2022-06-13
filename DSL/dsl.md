@@ -22,14 +22,7 @@ The _Context_ element in the _Trigger_ condition indicates the UAV's current sta
 Subsequently, each  _Monitor_ entry denotes a property item (i.e., a message) that is collected and distributed by the monitoring system. 
 
 
-
-
-
-<object data="https://github.com/LIT-Rumors/amon-material/blob/main/DSL/RT1.pdf" type="application/pdf" width="700px" height="700px">
-    <embed src="https://github.com/LIT-Rumors/amon-material/blob/main/DSL/RT1.pdf">
-        <p>This browser does not support PDFs. Please download the PDF to view it: <a href="http://yoursite.com/the.pdf">Download PDF</a>.</p>
-    </embed>
-</object>
+![image](https://user-images.githubusercontent.com/24531486/173364191-733f8ffb-e904-4812-9ef8-4f8a11567f8e.png)
 
 
 
@@ -39,11 +32,23 @@ The _Period_ further specifies how often data is sent from, for example, the edg
 
 ## Ubiquitous Rules
 
+![image](https://user-images.githubusercontent.com/24531486/173364278-535dcc2c-35fc-43f8-894c-a72eba576a17.png)
+
+![image](https://user-images.githubusercontent.com/24531486/173364379-012afc36-6e4b-4df1-b5a3-3a820233cd7f.png)
+
+![image](https://user-images.githubusercontent.com/24531486/173364458-a34c5cc8-3c61-4d3c-aad0-ac93b82f4d19.png)
+
+
 
 ## Default Values
 
+![image](https://user-images.githubusercontent.com/24531486/173364525-2e713038-12d3-49a1-8aa2-ee9617648f91.png)
+
+
+
 ## Assumptions
 
+![image](https://user-images.githubusercontent.com/24531486/173364593-be9ed830-9398-4a40-ba70-3d781ac7620f.png)
 
 
 
