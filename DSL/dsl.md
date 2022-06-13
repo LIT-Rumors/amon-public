@@ -90,7 +90,16 @@ Assumptions can also be specified on constraints to determine which properties a
 
 ```Model: 	namespace=Namespace contracts+=Assumption* defaults+=DefaultValues* prules+=MonitoringRule*  grules+=GlobalRule* constraints+=ConstraintRule*;```
 
-``Namespace:	'namespace' namespace=STRING ';';``
+
+- ``Namespace:	'namespace' namespace=STRING ';';``
+
+Specifies the namespace of the system to identify the related state-transition diagram
+
+
+- ``MonitoringRule:	'Rule' 'PREPLANNED' name=STRING applicability=Applicability  trigger=Trigger monitors+=Monitor* ';';``
+	
+- ``GlobalRule:	'Rule' 'UBIQUITOUS' name=STRING applicability=Applicability ('salience' salience=INT)?  trigger=Trigger monitors+=Monitor*  ';';``
+
 
 
 ``Assumption: 	'Assumption' name=STRING frequency=MinFrequency  ';';``
@@ -115,9 +124,7 @@ Assumptions can also be specified on constraints to determine which properties a
 
 ``Scope:	'scope' scope=('local' | 'central');``
 
-``MonitoringRule:	'Rule' 'PREPLANNED' name=STRING applicability=Applicability  trigger=Trigger monitors+=Monitor* ';';``
-	
-``GlobalRule:	'Rule' 'UBIQUITOUS' name=STRING applicability=Applicability ('salience' salience=INT)?  trigger=Trigger monitors+=Monitor*  ';';``
+
 	
 
 ``Trigger:	'Trigger' trigger=(Event | Context | Data);``
