@@ -83,7 +83,7 @@ Assumptions can also be specified on constraints to determine which properties a
 
 
 
-### Grammar
+## Grammar
 
 [XText DSL File](Dsl.xtext)
 
