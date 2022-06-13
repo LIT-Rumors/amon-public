@@ -1,13 +1,38 @@
 
+AMon Domain-Specific Monitoring Adaptation Language
+
+To facilitate the specification of adaptation rules for a runtime monitoring environment, we created a domain-specific language that provides capabilities for defining different types of adaptation rules and specifying assumptions about the monitoring data.
+
+We include two types of rules:
+
+-. Preplanned Rules that are triggered based on different states of the system, or of its devices (e.g., a UAV being in a "takeoff" state versus "flying")
+-. Ubiquitous Rules that are triggered by exceptions (e.g., a low battery warning) or other factors.
+
+In addition to the specification of rules, we also support the description of 
+- Assumptions about the system and its environment.
+- Default Values
 
 
 
+## Preplanned Rules
+
+Preplanned adaptations of the monitoring environment may occur as the CPS  changes state, and these adaptations may require changing the monitoring location from the edge device (e.g., onboard the UAV) to a  centralized monitoring component.
+Such rules can either apply _globally_, or to _specific devices_ (e.g., a group of UAVs performing a joint mission, or even individual devices identified by their respective id).
+The _Context_ element in the _Trigger_ condition indicates the UAV's current state. 
+Subsequently, each  _Monitor_ entry denotes a property item (i.e., a message) that is collected and distributed by the monitoring system. 
 
 
 
+Monitor specifications define the _Scope_ i.e., whether the data is processed locally on the device _scope local_, or sent to a central server (_scope central_) for processing, constraint checking, or further analysis.
+The _Period_ further specifies how often data is sent from, for example, the edge device to the central server.
 
 
+## Ubiquitous Rules
 
+
+## Default Values
+
+## Assumptions
 
 
 
