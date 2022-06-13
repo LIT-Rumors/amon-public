@@ -2,7 +2,7 @@
 
 
 - [Questionaire](questionaire.pdf)
-- [Protocol Template](teplate.pdf)
+- [Protocol Template](ta-protocol-template.pdf)
 
 ## Training Material & Tasks
 
