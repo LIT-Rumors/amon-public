@@ -15,7 +15,7 @@ In addition to the specification of rules, we also support the description of
 
 ## Examples: 
 
- - [Dronology Rules (Xtext)](example_dronology.mondsl)
+ - [Dronology Rules (Xtext)](examples/uav_item_delivery.mondsl)
  - [TurtleBot Rules (Xtext)](example_tutrtlebot.mondsl)
 
 
