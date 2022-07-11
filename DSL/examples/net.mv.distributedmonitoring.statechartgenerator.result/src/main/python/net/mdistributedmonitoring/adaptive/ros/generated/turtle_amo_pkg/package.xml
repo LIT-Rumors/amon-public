@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<package format="2">
+    <name>turtle_amo_pkg</name>
+    <version>0.0.1</version>
+    <description>This package is a generated package by the AMo project to monitor adaptive a TurtleBot3 .</description>
+    
+    <maintainer email="marco.stadler@jku.at">Marco Stadler</maintainer>
+    
+    <license>MIT</license>
+    
+    <url type="website">https://github.com/michvier/distributedmonitoring</url>
+    <author email="marco.stadler@jku.at">Marco Stadler</author>
+    <author email="michael.vierhauser@jku.at">Michael Vierhauser</author>
+
+    <buildtool_depend>catkin</buildtool_depend>
+    
+    <build_depend>roscpp</build_depend>
+    <build_depend>rospy</build_depend>
+    <build_depend>std_msgs</build_depend>
+    <build_export_depend>roscpp</build_export_depend>
+    <build_export_depend>rospy</build_export_depend>
+    <build_export_depend>std_msgs</build_export_depend>
+    
+    <exec_depend>roscpp</exec_depend>
+    <exec_depend>rospy</exec_depend>
+    <exec_depend>std_msgs</exec_depend>
+
+</package>
