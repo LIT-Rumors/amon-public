@@ -11,7 +11,7 @@ sys.path.append(dir_path)
 
 # settings
 LOCAL_MQTT_IP = 'localhost'
-CENTRAL_MQTT_IP = 'ms-web-developer.de'
+CENTRAL_MQTT_IP = 'central-example-mqtt.org'
 
 global local_mqtt_client_id, CENTRAL_MQTT_CLIENT_ID, sm_mqtt_client_id
 
@@ -75,7 +75,7 @@ class _MQTTForwarderCentral:
         global CENTRAL_MQTT_CLIENT_ID
         # Set Connecting Client ID
         client = mqtt_client.Client(CENTRAL_MQTT_CLIENT_ID)
-        client.username_pw_set('marco', 'XuXQlBbBGdOyJiplRIvV')
+        client.username_pw_set('username', 'password')
         client.on_connect = _on_connect
         client.connect(CENTRAL_MQTT_IP, 8883)
         self.client = client
