@@ -19,7 +19,7 @@ In addition to the specification of rules, we also support the description of
 
 
 
-![image](examples/dsv_v2.png)
+![image](examples/dsl_v2.png)
 
 
 
