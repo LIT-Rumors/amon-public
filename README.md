@@ -27,3 +27,9 @@ We further conducted a user study assessing the understandability and ease of us
 __User Study Material:__
 
  - [Study Material](/user%20study)
+
+
+<br><br><br><br>
+__Zenodo Link:__
+
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.6860667.svg)](https://doi.org/10.5281/zenodo.6860667)
